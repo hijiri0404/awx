@@ -1,0 +1,17 @@
+---
+- name: Apache server installed
+  hosts: RHEL
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: latest Apache version installd
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Apache enable
+      service:
+        name: httpd
+        enabled: true
+        state: started
