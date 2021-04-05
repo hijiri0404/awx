@@ -1,6 +1,6 @@
 - name: Stop sandbox instances
-  hosts: localhost
-  gather_facts: false
+  #hosts: localhost
+  #gather_facts: false
   vars:
     instance_ids:
       - 'i-0975bce3004e6d5ff'
