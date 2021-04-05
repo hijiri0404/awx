@@ -1,17 +1,16 @@
----
-- name: Apache server installed
-  hosts: RHEL
-  become: yes
-  gather_facts: yes
-
+- name: Stop sandbox instances
+  hosts: localhost
+  gather_facts: false
+  vars:
+    instance_ids:
+      - 'i-0975bce3004e6d5ff'
+    region: ap-northeast-1
   tasks:
-    - name: latest Apache version installd
-      yum:
-        name: httpd
-        state: latest
-
-    - name: Apache enable
-      service:
-        name: httpd
-        enabled: true
-        state: started
+    - name: Stop the sandbox instances
+      ec2:
+        instance_ids: '{{ instance_ids }}'
+        region: '{{ region }}'
+        state: stopped
+        wait: True
+        vpc_subnet_id: subnet-05dc3e954e7e6787c
+        assign_public_ip: yes
