@@ -1,4 +1,4 @@
-- name: Stop sandbox instances
+- name: Stop sandbox instances22222
   hosts: localhost
   gather_facts: false
   vars:
@@ -6,7 +6,7 @@
       - 'i-0975bce3004e6d5ff'
     region: ap-northeast-1
   tasks:
-    - name: Stop the sandbox instances
+    - name: Stop the sandbox instances2222
       ec2:
         instance_ids: '{{ instance_ids }}'
         region: '{{ region }}'
