@@ -16,4 +16,4 @@
       register: ec2_regst
 
     - debug: var=ec2_regst
-      when: ec2_regst | success
+
