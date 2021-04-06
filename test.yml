@@ -12,6 +12,7 @@
         count: 1
         vpc_subnet_id: subnet-05dc3e954e7e6787c 
         assign_public_ip: yes
+        region: ap-northeast-1
       register: ec2_regst
 
     - debug: var=ec2_regst
