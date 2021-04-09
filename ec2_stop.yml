@@ -21,6 +21,6 @@
     - name: result
       assert:
         that:
-          - Instance_ID.instances[0].state.name == "stopped"
+          - Instance_ID.instances[0].state.name == "stoppedd"
         fail_msg: "ERROR"
         success_msg: "OK"        
