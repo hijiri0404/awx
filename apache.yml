@@ -3,7 +3,14 @@
   tasks:
    - name: install apache
      yum: name=httpd
- 
+
+- hosts: centos8
+  gather_facts: false
+  tasks:
+   - name: shell
+     shell: id
+
+
 
 - name: Start instances
   hosts: localhost
