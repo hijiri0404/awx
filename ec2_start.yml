@@ -3,6 +3,7 @@
   tasks:
     - name: Stop webserver1
       ec2:
+        wait: True
         instance_tags:
             Name: "{{ tag }}"
         state: running
