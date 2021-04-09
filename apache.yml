@@ -3,3 +3,5 @@
   tasks:
    - name: shell
      shell: id
+   - name: pwd
+     shell: hostname
