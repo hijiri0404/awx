@@ -1,11 +1,4 @@
-- name: get elb
-  hosts: localhost
-  tasks:
-    - name: get elb
-      ec2_elb_info:
-        region: ap-northeast-1
-      register: cmd_out
-
-    - name: debug
-      debug:
-        var: cmd_out
+- action:
+    module: ec2_elb_info
+      region: ap-northeast-1
+  register: elb_info
