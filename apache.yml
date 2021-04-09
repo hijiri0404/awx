@@ -6,7 +6,7 @@
  
 
 - name: Start instances
-  hosts: centos8
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Start EC2 Info
