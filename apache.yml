@@ -4,7 +4,7 @@
    - name: install apache
      yum: name=httpd
 
-- hosts: centos8
+- hosts: localhost
   gather_facts: false
   tasks:
    - name: shell
