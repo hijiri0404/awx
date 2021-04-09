@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Stop webserver1
+    - name: Stop EC2 Info
       ec2:
         wait: True      
         instance_tags:
