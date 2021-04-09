@@ -9,18 +9,17 @@
             Name: "{{ tag }}"
         state: stopped
         region: ap-northeast-1
-      register: cmd_out
 
     - name: Get EC2 Info
       ec2_instance_info:
         region: ap-northeast-1
         filters:
          "tag:Name": "{{ tag }}"
-      register: Instance_ID
+      register: Instance_State
       
     - name: result
       assert:
         that:
-          - Instance_ID.instances[0].state.name == "stopped"
+          - Instance_State.instances[0].state.name == "stopped"
         fail_msg: "ERROR"
         success_msg: "OK"        
