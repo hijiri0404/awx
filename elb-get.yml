@@ -1,4 +1,7 @@
-- name: Gathering ELB facts
-  ec2_elb_info:
-    region: ap-northeast-1
-  register: elb_facts
+- name: Stop instances
+  hosts: localhost
+  tasks:
+    - name: Gathering ELB facts
+      ec2_elb_info:
+        region: ap-northeast-1
+      register: elb_facts
