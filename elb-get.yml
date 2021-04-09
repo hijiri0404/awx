@@ -2,6 +2,6 @@
   hosts: localhost
   tasks:
     - name: Gathering ELB facts
-      ec2_elb_info:
+      elb_application_lb_info:
         region: ap-northeast-1
       register: elb_facts
