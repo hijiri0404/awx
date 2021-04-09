@@ -1,0 +1,16 @@
+- name: Stop instances
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Gathering ELB facts
+      elb_application_lb_info:
+        region: ap-northeast-1
+      register: elb_facts
+
+    - name: Deregister
+      elb_target:
+        target_group_name: "{{ group_name }}"
+        target_id: "{{ ec2_instance_id }}"
+        state: present
+        region: ap-northeast-1
+        target_status: healthy
