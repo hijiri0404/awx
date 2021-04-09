@@ -8,7 +8,8 @@
       register: elb_facts
 
 
-- name: Instance De-register
-  ec2_elb:
-    instance_id: "{{ ec2_instance_id }}"
-    state: absent
+    - name: Instance De-register
+      ec2_elb:
+        instance_id: "{{ ec2_instance_id }}"
+        state: absent
+        wait: yes
