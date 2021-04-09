@@ -22,5 +22,8 @@
       register: Instance_ID
       
     - name: result
-      debug:
-        var: Instance_ID.instances[0].state.name
+      assert:
+        that:
+          - Instance_ID.instances[0].state.name == "stopped"
+        fail_msg: "ERROR"
+        success_msg: "OK"        
