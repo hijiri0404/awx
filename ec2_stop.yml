@@ -4,5 +4,5 @@
     - name: Stop webserver1
       ec2:
         instance_tags:
-            Name: ""{{ tag }}""
+            Name: "{{ tag }}"
         state: stopped
