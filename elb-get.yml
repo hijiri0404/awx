@@ -12,3 +12,4 @@
         target_group_name: "{{ group_name }}"
         target_id: "{{ ec2_instance_id }}"
         state: absent
+        region: ap-northeast-1
