@@ -6,3 +6,4 @@
         instance_tags:
             Name: "{{ tag }}"
         state: stopped
+        region: ap-northeast-1
