@@ -11,7 +11,7 @@
     - name: Instance De-register
       ec2_elb:
         instance_id: "{{ ec2_instance_id }}"
-        state: present
+        state: absent
         region: ap-northeast-1
         wait: yes
       register: cmd_out
