@@ -1,0 +1,23 @@
+- name: Deregister
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get EC2 Info
+      ec2_instance_info:
+        region: ap-northeast-1
+        filters:
+         "tag:Name": "{{ tag }}"
+      register: Instance_ID
+
+    - name: Gathering ELB facts
+      elb_application_lb_info:
+        region: ap-northeast-1
+      register: elb_facts
+
+    - name: Deregister
+      elb_target:
+        target_group_name: "{{ group_name }}"
+        target_id: "{{ Instance_ID.instances[0].instance_id }}"
+        state: absent
+        region: ap-northeast-1
+        target_status: unused
