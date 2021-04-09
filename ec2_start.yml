@@ -12,4 +12,4 @@
 
     - name: debug
       debug:
-        var: cmd_out.instances.id
+        var: cmd_out
