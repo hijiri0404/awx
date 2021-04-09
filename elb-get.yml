@@ -1,5 +1,6 @@
 - name: Stop instances
   hosts: localhost
+  gather_facts: false
   tasks:
     - name: Gathering ELB facts
       elb_application_lb_info:
