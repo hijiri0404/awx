@@ -2,7 +2,7 @@
   gather_facts: false
   tasks:
    - name: check-http
-     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 201 -Quiet
      register: cmdexe1_out
      
    - name: check-http >  out
