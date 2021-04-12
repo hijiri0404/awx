@@ -1,4 +1,5 @@
 - hosts: windows2019
+  gather_facts: false
   tasks:
    - name: check-http
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
