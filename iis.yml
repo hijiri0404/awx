@@ -18,7 +18,7 @@
        var: cmdexe2_out.stderr_lines
        
    - name: テストその3
-     win_shell: $w = Invoke-WebRequest -Uri "http://localhost2" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
      register: cmdexe3_out
      
    - name: テストその3 >  out
