@@ -1,27 +1,27 @@
 - hosts: windows2019
   gather_facts: false
   tasks:
-   - name: check-http
+   - name: テストその1
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
      register: cmdexe1_out
      
-   - name: check-http >  out
+   - name: テストその1 >  out
      debug:
        var: cmdexe1_out.stdout_lines
        
-   - name: check-http2
+   - name: テストその2
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
      register: cmdexe2_out
      
-   - name: check-http2 >  out
+   - name: テストその2 >  out
      debug:
        var: cmdexe2_out.stdout_lines
        
-   - name: check-http3
+   - name: テストその3
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost2" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
      register: cmdexe3_out
      
-   - name: check-http3 >  out
+   - name: テストその3 >  out
      debug:
        var: cmdexe3_out
        
