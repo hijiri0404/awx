@@ -23,7 +23,7 @@
      
    - name: テストその3 >  out
      debug:
-       var: {{ cmdexe3_out.stdout_lines }}
+       var: "{{ cmdexe3_out.stdout_lines }}"
        
    - name: result
      assert:
