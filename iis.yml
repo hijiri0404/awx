@@ -7,7 +7,7 @@
      
    - name: テストその1 >  out
      debug:
-       var: cmdexe1_out.stdout_lines
+       var: cmdexe1_out.stderr_lines
        
    - name: テストその2
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
