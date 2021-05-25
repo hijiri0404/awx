@@ -15,7 +15,7 @@
      
    - name: テストその2 >  out
      debug:
-       var: cmdexe2_out.stdout_lines
+       var: cmdexe2_out.stderr_lines
        
    - name: テストその3
      win_shell: $w = Invoke-WebRequest -Uri "http://localhost2" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
@@ -23,7 +23,7 @@
      
    - name: テストその3 >  out
      debug:
-       var: "{{ cmdexe3_out.stdout_lines }}"
+       var: cmdexe3_out.stderr_lines
        
    - name: result
      assert:
