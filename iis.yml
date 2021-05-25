@@ -9,10 +9,28 @@
      debug:
        var: cmdexe1_out.stdout_lines
        
+   - name: check-http2
+     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+     register: cmdexe2_out
+     
+   - name: check-http2 >  out
+     debug:
+       var: cmdexe2_out.stdout_lines
+       
+   - name: check-http3
+     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+     register: cmdexe3_out
+     
+   - name: check-http3 >  out
+     debug:
+       var: cmdexe3_out.stdout_lines
+       
    - name: result
      assert:
        that:
          - cmdexe1_out.stdout_lines[0] == "True"
+         - cmdexe2_out.stdout_lines[0] == "True"
+         - cmdexe3_out.stdout_lines[0] == "True"         
        fail_msg: "error"
        success_msg: "OK"
     
