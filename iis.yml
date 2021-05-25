@@ -1,36 +1,36 @@
 - hosts: windows2019
   gather_facts: false
   tasks:
-   - name: テストその1
-     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
-     register: cmdexe1_out
+    - name: テストその1
+      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+      register: cmdexe1_out
      
-   - name: テストその1 >  out
-     debug:
-       var: cmdexe1_out.stderr_lines
+    - name: テストその1 >  out
+      debug:
+        var: cmdexe1_out.stderr_lines
        
-   - name: テストその2
-     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
-     register: cmdexe2_out
+    - name: テストその2
+      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+      register: cmdexe2_out
      
-   - name: テストその2 >  out
-     debug:
-       var: cmdexe2_out.stderr_lines
+    - name: テストその2 >  out
+      debug:
+        var: cmdexe2_out.stderr_lines
        
-   - name: テストその3
-     win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
-     register: cmdexe3_out
+    - name: テストその3
+      win_shell: $w = Invoke-WebRequest -Uri "http://localhost" -UseBasicParsing ; $w.StatusCode | Select-String -Pattern 200 -Quiet
+      register: cmdexe3_out
      
-   - name: テストその3 >  out
-     debug:
-       var: cmdexe3_out.stderr_lines
+    - name: テストその3 >  out
+      debug:
+        var: cmdexe3_out.stderr_lines
        
-   - name: result
-     assert:
-       that:
-         - cmdexe1_out.stdout_lines[0] == "True"
-         - cmdexe2_out.stdout_lines[0] == "True"
-         - cmdexe3_out.stdout_lines[0] == "True"         
-       fail_msg: "error"
-       success_msg: "OK"
+    - name: result
+      assert:
+        that:
+          - cmdexe1_out.stdout_lines[0] == "True"
+          - cmdexe2_out.stdout_lines[0] == "True"
+          - cmdexe3_out.stdout_lines[0] == "True"         
+        fail_msg: "error"
+        success_msg: "OK"
     
